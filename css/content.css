@@ -1,8 +1,12 @@
-.data-panel-viewer.fullscreen {
+.f7e-card.fullscreen {
     position: fixed;
     top: 0;
     left: 0;
     z-index: 200;
     width: 100vw;
+    height: 100vh !important;
+}
+
+.f7e-viewer.fullscreen {
     height: 100vh !important;
 }

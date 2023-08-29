@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Firestore fullscreen",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Get a fullscreen experience when browsing the Firestore database.",
 
   "icons": {

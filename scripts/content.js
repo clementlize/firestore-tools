@@ -30,9 +30,15 @@ const observer = new MutationObserver((mutations) => {
         
         // Toggle class on specific elements
         const elementsToToggle = [];
-        elementsToToggle.push(document.querySelector(".data-panel-viewer"));
+        elementsToToggle.push(document.querySelector(".f7e-card"));
+        elementsToToggle.push(document.querySelector(".f7e-viewer"));
         elementsToToggle.forEach((element) => {
-          element.classList.toggle("fullscreen");
+          if (element) {
+            element.classList.toggle("fullscreen");
+          }
+          else {
+            console.error("Could not find element to toggle");
+          }
         });
 
         document.body.classList.toggle("fullscreen");
