@@ -15,6 +15,12 @@ const observer = new MutationObserver((mutations) => {
     // Add toggle button if needed
     if (!document.querySelector(`.${TOGGLE_BUTTON_CLASS}`)) {
 
+      const moreMenuButton = document.querySelector("firestore-link-out-menu");
+      if (!moreMenuButton) {
+        console.debug("Could not find more menu button, probably not on cloud firestore data page. Not inserting button");
+        return;
+      }
+
       console.log("Adding toggle button...");
       const toggleButton = document.createElement('button');
       toggleButton.classList.add("mat-mdc-menu-trigger", "menu-button", "mdc-button", "mat-mdc-button", "mat-primary", "mat-mdc-button-base", TOGGLE_BUTTON_CLASS);
@@ -30,8 +36,8 @@ const observer = new MutationObserver((mutations) => {
         
         // Toggle class on specific elements
         const elementsToToggle = [];
-        elementsToToggle.push(document.querySelector(".f7e-card"));
-        elementsToToggle.push(document.querySelector(".f7e-viewer"));
+        elementsToToggle.push(document.querySelector("f7e-data-panel-viewer"));
+        elementsToToggle.push(document.querySelector(".data-panel-viewer"));
         elementsToToggle.forEach((element) => {
           if (element) {
             element.classList.toggle("fullscreen");
