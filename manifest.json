@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Firestore fullscreen",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Get a fullscreen experience when browsing the Firestore database.",
 
   "icons": {
@@ -10,12 +10,14 @@
     "48": "images/icon-48.png",
     "128": "images/icon-128.png"
   },
-
   "content_scripts": [
     {
       "matches": ["*://console.firebase.google.com/*"], 
       "js": ["scripts/content.js"],
       "css" : ["css/content.css"]
     }
-  ]
+  ],
+  "action": {
+    "default_popup": "popup/popup.html"
+  }
 }
