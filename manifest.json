@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Firestore fullscreen",
-  "version": "1.0.4",
-  "description": "Get a fullscreen experience when browsing the Firestore database.",
+  "version": "1.0.5",
+  "description": "Get a fullscreen experience when browsing the Firestore database (and GCP logs explorer)",
 
   "icons": {
     "16": "images/icon-16.png",
@@ -12,7 +12,10 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://console.firebase.google.com/*"], 
+      "matches": [
+        "*://console.firebase.google.com/*",
+        "*://console.cloud.google.com/*"
+      ], 
       "js": ["scripts/content.js"],
       "css" : ["css/content.css"]
     }

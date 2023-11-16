@@ -10,3 +10,13 @@ f7e-data-panel-viewer.fullscreen {
 .data-panel-viewer.fullscreen {
     height: 100vh !important;
 }
+
+/* .logs-card.logs-viewer-card.query-results.fullscreen { */
+.logs-card.consolidated-cards.ng-tns-c2823155722-4.default.ng-star-inserted.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    width: 100vw;
+    height: 100vh !important;
+}
