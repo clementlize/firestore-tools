@@ -3,18 +3,18 @@ import { addFullscreenButtonIfNecessary } from "./modules/fullScreen";
 
 const observer = new MutationObserver(() => {
 
-  const topbar: HTMLDivElement | undefined = document.querySelector(".fire-card-action-bar.on-grey-theme-container");
+  const topbar = document.querySelector(".fire-card-action-bar.on-grey-theme-container") as HTMLDivElement | undefined;
   if (topbar) {
 
     // Check that we're on the firestore database page
-    const moreMenuButton: HTMLButtonElement | undefined = document.querySelector("firestore-link-out-menu");
+    const moreMenuButton = document.querySelector("firestore-link-out-menu") as HTMLButtonElement | undefined;
     if (!moreMenuButton) {
       console.debug("Could not find more menu button, probably not on cloud firestore data page. Not inserting buttons");
       return;
     }
 
     // Remove the text of the button "More in Google Cloud" to earn space in the topbar
-    const moreInGoogleCloudButton: HTMLButtonElement | undefined = topbar.querySelector('.menu-button-content').querySelector('span:first-of-type');
+    const moreInGoogleCloudButton = topbar.querySelector('.menu-button-content')?.querySelector('span:first-of-type') as HTMLButtonElement | undefined;
     if (moreInGoogleCloudButton) {
       moreInGoogleCloudButton.textContent = "";
     }
@@ -31,4 +31,3 @@ const observer = new MutationObserver(() => {
 });
 
 observer.observe(document, { childList: true, subtree: true });
-console.log("TESTT");
