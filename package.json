@@ -1,6 +1,6 @@
 {
   "name": "firestore-tools",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Simplify your life when using Google Firebase Firestore realtime database browser: fullscreen mode, auto-collapse fields.",
   "scripts": {
     "start": "webpack --watch --config webpack.dev.cjs",

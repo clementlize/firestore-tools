@@ -2,7 +2,8 @@ f7e-data-panel-viewer.fullscreen {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 200;
+  /* The GCP owner icon is actually at z-index 986, we have to be above.*/
+  z-index: 1000; 
   width: 100vw;
   height: 100vh !important;
 }
