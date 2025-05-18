@@ -1,3 +1,6 @@
+import { BASE_BUTTON_CLASSES } from "../helpers/constants";
+
+const COLLAPSE_EXPAND_BUTTONS_CONTAINER_CLASS = 'collapse-expand-buttons-container';
 const COLLAPSE_FIELDS_BUTTON_CLASS = 'collapse-fields-button';
 const EXPAND_FIELDS_BUTTON_CLASS = 'expand-fields-button';
 
@@ -54,7 +57,7 @@ const getPageButtons = (type: "expand" | "collapse"): HTMLButtonElement[] => {
 const getButtonToInsert = (text: string, className: string) => {
 
   const button = document.createElement('button');
-  button.classList.add("mat-mdc-menu-trigger", "menu-button", "mdc-button", "mat-mdc-button", "mat-primary", "mat-mdc-button-base", className);
+  button.classList.add(...BASE_BUTTON_CLASSES, className);
   button.textContent = text;
 
   button.style.marginLeft = "0px";
@@ -67,19 +70,29 @@ const getButtonToInsert = (text: string, className: string) => {
 
 export const addExpandCollapseFieldsButtonsIfNecessary = (topbar: HTMLDivElement) => {
 
+  let buttonsContainer = document.querySelector(`.${COLLAPSE_EXPAND_BUTTONS_CONTAINER_CLASS}`);
+  if (!buttonsContainer) {
+    buttonsContainer = document.createElement('div');
+    buttonsContainer.classList.add(COLLAPSE_EXPAND_BUTTONS_CONTAINER_CLASS);
+    topbar.insertAdjacentElement("beforeend", buttonsContainer);
+  }
+
   if (!document.querySelector(`.${COLLAPSE_FIELDS_BUTTON_CLASS}`)) {
 
     console.log("Adding collapse button...");
     const button = getButtonToInsert("Collapse fields", COLLAPSE_FIELDS_BUTTON_CLASS);
-    topbar.insertAdjacentElement("beforeend", button);
+    buttonsContainer.insertAdjacentElement("beforeend", button);
     console.debug("Added collapse button");
 
     console.log("Adding collapse button event listener...");
-    button.addEventListener('click', () => {
+    button.addEventListener('click', (e) => {
+
+      e.stopPropagation();
+
       const pageButtons = getPageButtons("collapse");
       pageButtons.forEach((pageButton) => {
         pageButton.click();
-      })
+      });
     });
     console.log("Added collapse button event listener.");
   }
@@ -88,15 +101,18 @@ export const addExpandCollapseFieldsButtonsIfNecessary = (topbar: HTMLDivElement
 
     console.log("Adding expand button...");
     const button = getButtonToInsert("Expand fields", EXPAND_FIELDS_BUTTON_CLASS);
-    topbar.insertAdjacentElement("beforeend", button);
+    buttonsContainer.insertAdjacentElement("beforeend", button);
     console.debug("Added expand button");
 
     console.log("Adding expand button event listener...");
-    button.addEventListener('click', () => {
+    button.addEventListener('click', (e) => {
+
+      e.stopPropagation();
+
       const pageButtons = getPageButtons("expand");
       pageButtons.forEach((pageButton) => {
         pageButton.click();
-      })
+      });
     });
     console.log("Added expand button event listener.");
   }

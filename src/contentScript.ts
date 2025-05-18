@@ -3,7 +3,7 @@ import { addFullscreenButtonIfNecessary } from "./modules/fullScreen";
 
 const observer = new MutationObserver(() => {
 
-  const topbar = document.querySelector(".fire-card-action-bar.on-grey-theme-container") as HTMLDivElement | undefined;
+  const topbar = document.querySelector("fire-breadcrumbs div.crumbs") as HTMLDivElement | undefined;
   if (topbar) {
 
     // Check that we're on the firestore database page
@@ -14,7 +14,7 @@ const observer = new MutationObserver(() => {
     }
 
     // Remove the text of the button "More in Google Cloud" to earn space in the topbar
-    const moreInGoogleCloudButton = topbar.querySelector('.menu-button-content')?.querySelector('span:first-of-type') as HTMLButtonElement | undefined;
+    const moreInGoogleCloudButton = document.querySelector('.menu-button-content')?.querySelector('span:first-of-type') as HTMLButtonElement | undefined;
     if (moreInGoogleCloudButton) {
       moreInGoogleCloudButton.textContent = "";
     }

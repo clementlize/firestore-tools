@@ -1,13 +1,22 @@
-f7e-data-panel-viewer.fullscreen {
-  position: fixed;
+.firestore-tools-fullscreen {
+  position: fixed !important;
   top: 0;
   left: 0;
   /* The GCP owner icon is actually at z-index 986, we have to be above.*/
   z-index: 1000; 
-  width: 100vw;
+  width: 100vw !important;
   height: 100vh !important;
 }
 
-.data-panel-viewer.fullscreen {
-  height: 100vh !important;
+.firestore-tools-button {
+  margin-left: -8px !important;
+  margin-right: 4px !important;
+}
+
+.collapse-expand-buttons-container{
+  width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-right: -16px;
 }
